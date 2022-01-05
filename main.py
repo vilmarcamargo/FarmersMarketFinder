@@ -12,6 +12,7 @@ class MainApp(MDApp):
 
     def on_start(self):
         load_dotenv()
+        self.theme_cls.primary_palette = "BlueGray"
 
         # Initialize GPS
 
