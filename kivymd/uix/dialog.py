@@ -519,9 +519,7 @@ class BaseDialog(ThemableBehavior, ModalView):
                     hint_text=instance_content_dialog.hint_text,
                 )
                 instance_content_dialog.ids.box_input.height = dp(33)
-                instance_content_dialog.ids.box_input.add_widget(
-                    self.text_field
-                )
+                instance_content_dialog.ids.box_input.add_widget(self.text_field)
 
             if self.text_button_cancel != "":
                 anchor = "left"
@@ -544,14 +542,10 @@ class BaseDialog(ThemableBehavior, ModalView):
                     MDTextButton(
                         text=self.text_button_cancel,
                         font_size="18sp",
-                        on_release=lambda x: _events_callback(
-                            self.text_button_cancel
-                        ),
+                        on_release=lambda x: _events_callback(self.text_button_cancel),
                     )
                 )
-                instance_content_dialog.ids.box_buttons.add_widget(
-                    box_button_cancel
-                )
+                instance_content_dialog.ids.box_buttons.add_widget(box_button_cancel)
 
         else:  # create buttons for Android
             if isinstance(instance_content_dialog, ContentInputDialog):
@@ -561,9 +555,7 @@ class BaseDialog(ThemableBehavior, ModalView):
                     hint_text=instance_content_dialog.hint_text,
                 )
                 instance_content_dialog.ids.box_input.height = dp(48)
-                instance_content_dialog.ids.box_input.add_widget(
-                    self.text_field
-                )
+                instance_content_dialog.ids.box_input.add_widget(self.text_field)
                 instance_content_dialog.ids.box_buttons.remove_widget(
                     instance_content_dialog.ids.sep
                 )
@@ -584,18 +576,15 @@ class BaseDialog(ThemableBehavior, ModalView):
                     text=self.text_button_cancel,
                     theme_text_color="Custom",
                     text_color=self.theme_cls.primary_color,
-                    on_release=lambda x: _events_callback(
-                        self.text_button_cancel
-                    ),
+                    on_release=lambda x: _events_callback(self.text_button_cancel),
                 )
                 box.add_widget(button_cancel)
 
             box_buttons.add_widget(box)
             instance_content_dialog.ids.box_buttons.add_widget(box_buttons)
             instance_content_dialog.ids.box_buttons.height = button_ok.height
-            instance_content_dialog.remove_widget(
-                instance_content_dialog.ids.sep
-            )
+            instance_content_dialog.remove_widget(instance_content_dialog.ids.sep)
+
 
 class ListMDDialog(BaseDialog):
     name = StringProperty("Missing data")
@@ -646,11 +635,10 @@ class ListMDDialog(BaseDialog):
     PetFood = StringProperty("Missing data")
     Tofu = StringProperty("Missing data")
     WildHarvested = StringProperty("Missing data")
-    background = StringProperty('{}ios_bg_mod.png'.format(images_path))
+    background = StringProperty("{}ios_bg_mod.png".format(images_path))
 
 
-
-class MDInputDialog(BaseDialog):
+class lMDInputDialog(BaseDialog):
     title = StringProperty("Title")
     hint_text = StringProperty()
     text_button_ok = StringProperty("Ok")
@@ -670,7 +658,6 @@ class MDInputDialog(BaseDialog):
         )
         self.add_widget(self.content_dialog)
         self.set_content(self.content_dialog)
-        Clock.schedule_once(self.set_field_focus, 0.5)
 
     def set_field_focus(self, interval):
         self.text_field.focus = True
