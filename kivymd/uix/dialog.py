@@ -638,7 +638,7 @@ class ListMDDialog(BaseDialog):
     background = StringProperty("{}ios_bg_mod.png".format(images_path))
 
 
-class lMDInputDialog(BaseDialog):
+class MDInputDialog(BaseDialog):
     title = StringProperty("Title")
     hint_text = StringProperty()
     text_button_ok = StringProperty("Ok")
