@@ -1,7 +1,8 @@
 from kivymd.app import MDApp
 from farmersmapview import FarmersMapView
 from searchpopupmenu import SearchPopupMenu
-from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 import sqlite3
 
 
@@ -11,7 +12,7 @@ class MainApp(MDApp):
     search_menu = None
 
     def on_start(self):
-        load_dotenv()
+        # load_dotenv()
         self.theme_cls.primary_palette = "BlueGray"
 
         # Initialize GPS

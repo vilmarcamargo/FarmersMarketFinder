@@ -3,13 +3,14 @@ from urllib import parse
 from kivy.network.urlrequest import UrlRequest
 from kivy.app import App
 import certifi
-import os
+
+# import os
 
 
 class SearchPopupMenu(MDInputDialog):
     title = "Search by Address"
     text_button_ok = "Search"
-    api_key = os.environ["API_KEY"]
+    # api_key = os.environ["API_KEY"]
 
     def __init__(self):
         super().__init__()
@@ -22,7 +23,9 @@ class SearchPopupMenu(MDInputDialog):
         print(address)
 
     def geocode_get_lat_lon(self, address):
-        api_key = self.api_key
+        with open("api_key.txt", "r") as f:
+            api_key = f.read()
+        # api_key = self.api_key
         address = parse.quote(address)
         url = f"https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey={api_key}&searchtext={address}"
         UrlRequest(
