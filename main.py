@@ -1,6 +1,7 @@
 from kivymd.app import MDApp
 from farmersmapview import FarmersMapView
 from searchpopupmenu import SearchPopupMenu
+from gpshelper import GpsHelper
 
 # from dotenv import load_dotenv
 import sqlite3
@@ -16,6 +17,7 @@ class MainApp(MDApp):
         self.theme_cls.primary_palette = "BlueGray"
 
         # Initialize GPS
+        GpsHelper().run()
 
         # Connect to database
         self.connection = sqlite3.connect("markets.db")
