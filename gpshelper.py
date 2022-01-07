@@ -4,11 +4,12 @@ from kivymd.uix.dialog import MDDialog
 
 
 class GpsHelper:
-    def run(self):
-        has_centered_map = False
+    has_centered_map = False
 
+    def run(self):
         # Get a reference to GpsBlinker, then call blink()
         gps_blinker = App.get_running_app().root.ids.mapview.ids.blinker
+        # Start blinking the GpsBlinker
         gps_blinker.blink()
 
         # Request permissions on Android
