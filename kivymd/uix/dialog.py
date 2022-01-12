@@ -150,7 +150,7 @@ Builder.load_string(
 
 
 <ListMDDialog>
-    title: ""
+    title: "Market details: " + root.MarketName
     BoxLayout:
         orientation: 'vertical'
         padding: dp(15)
@@ -195,9 +195,22 @@ Builder.load_string(
                     ThinLabel:
                         text: "Address: "
                     ThinLabelButton:
-                        text: root.address
+                        text: root.street + ', ' + root.city
                         on_release:
                             webbrowser.open("http://maps.apple.com/?address="+parse.quote(self.text))
+
+                ThinBox:
+                    ThinLabel:
+                        text: "County: "
+                    ThinLabel:
+                        text: root.County
+
+                ThinBox:
+                    ThinLabel:
+                        text: "State: "
+                    ThinLabel:
+                        text: root.State
+
                 ThinBox:
                     ThinLabel:
                         text: "Website: "
@@ -223,42 +236,42 @@ Builder.load_string(
                     ThinLabel:
                         text: "Season1 Date: "
                     ThinLabel:
-                        text: root.Season1_date
+                        text: root.Season1Date
                 ThinBox:
                     ThinLabel:
                         text: "Season1 Hours: "
                     ThinLabel:
-                        text: root.Season1_hours
+                        text: root.Season1Time
                 ThinBox:
                     ThinLabel:
                         text: "Season2 Date: "
                     ThinLabel:
-                        text: root.Season2_date
+                        text: root.Season2Date
                 ThinBox:
                     ThinLabel:
                         text: "Season2 Hours: "
                     ThinLabel:
-                        text: root.Season2_hours
+                        text: root.Season2Time
                 ThinBox:
                     ThinLabel:
                         text: "Season3 Date: "
                     ThinLabel:
-                        text: root.Season3_date
+                        text: root.Season3Date
                 ThinBox:
                     ThinLabel:
                         text: "Season3 Hours: "
                     ThinLabel:
-                        text: root.Season3_hours
+                        text: root.Season3Time
                 ThinBox:
                     ThinLabel:
                         text: "Season4 Date: "
                     ThinLabel:
-                        text: root.Season4_date
+                        text: root.Season4Date
                 ThinBox:
                     ThinLabel:
                         text: "Season4 Hours: "
                     ThinLabel:
-                        text: root.Season4_hours
+                        text: root.Season4Time
                 ThinBox:
                     ThinLabel:
                         text: "Credit: "
@@ -587,19 +600,24 @@ class BaseDialog(ThemableBehavior, ModalView):
 
 
 class ListMDDialog(BaseDialog):
-    name = StringProperty("Missing data")
-    address = StringProperty("Missing data")
+    MarketName = StringProperty("Missing data")
+    city = StringProperty("Missing data")
+    street = StringProperty("Missing data")
+    County = StringProperty("Missing data")
+    State = StringProperty("Missing data")
+    zip = StringProperty("Missing data")
     Website = StringProperty("Missing data")
     Facebook = StringProperty("Missing data")
     Twitter = StringProperty("Missing data")
-    Season1_date = StringProperty("Missing data")
-    Season1_hours = StringProperty("Missing data")
-    Season2_date = StringProperty("Missing data")
-    Season2_hours = StringProperty("Missing data")
-    Season3_date = StringProperty("Missing data")
-    Season3_hours = StringProperty("Missing data")
-    Season4_date = StringProperty("Missing data")
-    Season4_hours = StringProperty("Missing data")
+    Season1Date = StringProperty("Missing data")
+    Season1Time = StringProperty("Missing data")
+    Season2Date = StringProperty("Missing data")
+    Season2Time = StringProperty("Missing data")
+    Season3Date = StringProperty("Missing data")
+    Season3Time = StringProperty("Missing data")
+    Season4Date = StringProperty("Missing data")
+    Season4Time = StringProperty("Missing data")
+    Location = StringProperty("Missing data")
     Credit = StringProperty("Missing data")
     WIC = StringProperty("Missing data")
     WICcash = StringProperty("Missing data")
